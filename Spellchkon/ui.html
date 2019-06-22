@@ -1,0 +1,242 @@
+<style>
+	* {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	input, textarea {
+		-webkit-user-select: text;
+		-khtml-user-select: text;
+		-moz-user-select: text;
+		-ms-user-select: text;
+		user-select: text;
+	}
+
+	/*  Typography */
+	@font-face {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.7") format("woff2"), url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.7") format("woff");
+	}
+
+	body {
+		margin: 0px;
+		padding: 8px;
+	}
+
+	h1, h2, h3 {
+		box-sizing: border-box;
+		margin-top: 12px;
+		margin-bottom: 12px;
+
+		font-family: sans-serif;
+	}
+
+	h1 {
+		font-size: 24px;
+	}
+
+	h2 {
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	h3 {
+		font-size: 14px;
+		font-weight: normal;
+	}
+
+	hr {
+		margin: 48px 0 48px 0;
+
+		border-top: 1px solid #cccccc;
+		border-bottom: none;
+		outline: none;
+	}
+
+	.label {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		height: 32px;
+		/* padding: 8px 4px 8px 8px; */
+		color: rgba(0, 0, 0, 0.54);
+		background-color: #ffffff;
+		font-family: "Inter", sans-serif;
+		line-height: 20px;
+		font-weight: 400;
+		font-size: 12px;
+		letter-spacing: 0.005em;
+	}
+
+	.button {
+		display: inline-block;
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+		padding: 10px 20px 10px 20px;
+		border: 1px solid #18a0fb;
+		border-radius: 6px;
+	}
+
+	.button--primary {
+		color: #ffffff;
+		background-color: #18a0fb;
+		margin-right: 16px;
+		font-family: "Inter", sans-serif;
+		line-height: 16px;
+		font-weight: 500;
+		font-size: 12px;
+		letter-spacing: 0.01em;
+	}
+
+	.button--primary:hover, .button--primary:active, .button--primary:focus {
+		border: 1px solid #126bdf;
+		background-color: #126bdf;
+	}
+
+	.button--primary:disabled {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.button--secondary {
+		color: rgba(0, 0, 0, 0.8);
+		border: 1px solid rgba(0, 0, 0, 0.8);
+		background-color: #ffffff;
+		font-family: "Inter", sans-serif;
+		line-height: 16px;
+		font-weight: 500;
+		font-size: 16px;
+		letter-spacing: 0.005em;
+	}
+
+	.button--secondary:hover, .button--secondary:active, .button--secondary:focus {
+		border: 1px solid #18a0fb;
+	}
+
+	.textarea {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		/* overflow: hidden; */
+		overflow: auto;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		width: 100%;
+		min-height: 62px;
+		/* margin: 1px 8px 1px 8px; */
+		padding: 8px;
+		resize: none;
+		color: rgba(0, 0, 0, 0.8);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 2px;
+		outline: none;
+		background-color: #ffffff;
+		font-family: "Inter", sans-serif;
+		line-height: 20px;
+		font-weight: 400;
+		font-size: 16px;
+		letter-spacing: 0.005em;
+	}
+
+	.textarea:active, .textarea:focus {
+		color: #000000;
+		border: 1px solid #18a0fb;
+		border-radius: 2px;
+	}
+
+	.textarea::-moz-selection {
+		color: #000000;
+		background-color: rgba(24, 145, 251, 0.3);
+	}
+
+	.textarea::selection {
+		color: #000000;
+		background-color: rgba(24, 145, 251, 0.3);
+	}
+
+	.textarea::-webkit-input-placeholder {
+		color: rgba(0, 0, 0, 0.3);
+	}
+
+	.textarea:-ms-input-placeholder {
+		color: rgba(0, 0, 0, 0.3);
+	}
+
+	.textarea::-ms-input-placeholder {
+		color: rgba(0, 0, 0, 0.3);
+	}
+
+	.textarea::placeholder {
+		color: rgba(0, 0, 0, 0.3);
+	}
+
+	.textarea:disabled {
+		color: rgba(0, 0, 0, 0.3);
+	}
+
+	.textarea:disabled:focus {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
+
+	.inputText {
+		width: 100%;
+		margin-bottom: 16px;
+	}
+
+	.footer {
+		position: relative;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+	}
+
+</style>
+
+<body>
+	<div class="label">Content:</div>
+	<div class="inputText" spellcheck="true">
+		<textarea autofocus="true" spellcheck="true" rows="5" class="textarea" id="textField" contenteditable="true">''</textarea>
+	</div>
+	<div class="footer">
+		<button class='button button--primary' id="update">Update</button>
+		<button class='button button--secondary' id="cancel">👋</button>
+	</div>
+
+<script>
+	// Message from Figma with .characters, insert to the textarea
+	onmessage = (event) => {
+		document.getElementById("textField").textContent = event.data.pluginMessage;
+	}
+
+	var getString = '';
+	var trimString = '';
+	// Get string back from textaread and trim the string if there are spaces at the beginning or end
+	function toTrim() {
+		getString = document.querySelector('#textField').value;
+		trimString = getString.trim();
+	}
+	// Update click event - send string back to node
+	document.getElementById('update').onclick = () => {
+		toTrim();
+		parent.postMessage({ pluginMessage: { trimString } }, '*');
+		console.log(trimString)
+	}
+	// Cancel click event - send cancel message back to Figma
+	document.getElementById('cancel').onclick = () => {
+		parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+	}
+
+</script>
+
